@@ -389,6 +389,25 @@ git push origin master
 ```
 7. Check your GitHub repository to see the changes!
 
+### Understanding Fork vs Clone
+
+**When to Clone:**
+- You own the repository (it's yours)
+- You have write access (you're a collaborator)
+- You want a local copy to work with
+- **Example**: This ETCETER4 project - you can clone it to experiment locally
+
+**When to Fork:**
+- You don't own the repository
+- You want to contribute to someone else's project
+- You need your own copy on GitHub to push changes to
+- **Process**: Fork on GitHub → Clone your fork → Make changes → Push to your fork → Create Pull Request
+
+**Important for beginners**: 
+- You can clone any public repository to learn from it
+- But you can only push changes to repositories you own or have access to
+- If you want to contribute to others' projects, fork first!
+
 ---
 
 ## 4. 💻 VS Code Setup and Configuration
@@ -540,13 +559,20 @@ Let's explore what's in this project:
 etceter4/
 ├── README.md           # Project documentation
 ├── package.json        # Project configuration and dependencies
+├── .gitignore          # Files Git should ignore (IMPORTANT!)
 ├── index.html          # Main website page
 ├── css/               # Stylesheets
 ├── js/                # JavaScript files
 ├── img/               # Images
 ├── fonts/             # Font files
+├── node_modules/      # Dependencies (auto-generated after npm install)
 └── other files...     # Various other project files
 ```
+
+**Critical Files to Understand:**
+- **`.gitignore`**: Lists files/folders that Git should never track (like `node_modules/`, sensitive data)
+- **`package.json`**: Defines project dependencies and scripts
+- **`node_modules/`**: Installed dependencies - can be 100+ MB, never commit this folder!
 
 ### Running the Project
 
@@ -683,6 +709,25 @@ When you run `git status`, you'll see files in different states:
 4. **Don't be afraid to break things**: You can always undo or revert changes
 5. **Google errors**: Copy error messages and search for solutions
 6. **Take breaks**: Coding can be mentally intensive
+
+### Security Best Practices (CRITICAL!)
+
+**Never commit these to Git:**
+1. **Passwords or API keys**: Never hardcode credentials in your code
+2. **Personal Access Tokens**: Keep these secret - treat them like passwords
+3. **Private keys**: SSH keys, encryption keys, etc.
+4. **node_modules/ folder**: Huge, regenerable with `npm install`
+5. **Environment files**: Files like `.env` with sensitive config
+6. **Personal information**: Phone numbers, addresses, real names in code comments
+
+**How to protect yourself:**
+- Check `.gitignore` includes `node_modules/` and `.env`
+- Before pushing, run `git status` and verify what you're committing
+- Use environment variables for sensitive data
+- If you accidentally commit a secret, immediately revoke/change it
+- Never share Personal Access Tokens in screenshots or messages
+
+**Remember**: Once pushed to GitHub, data is very hard to completely remove!
 
 ---
 
