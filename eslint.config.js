@@ -3,7 +3,15 @@ import js from '@eslint/js';
 export default [
   js.configs.recommended,
   {
-    files: ['js/main.js', 'js/page.js', 'js/pageData.js', 'js/images.js', 'js/diary.js', 'js/ogod.js', 'js/analytics.js'],
+    files: [
+      'js/main.js',
+      'js/page.js',
+      'js/pageData.js',
+      'js/images.js',
+      'js/diary.js',
+      'js/ogod.js',
+      'js/analytics.js',
+    ],
     languageOptions: {
       ecmaVersion: 2024,
       sourceType: 'script',
@@ -14,16 +22,16 @@ export default [
         $: 'readonly',
         jQuery: 'readonly',
         ga: 'readonly',
-        setInterval: 'readonly'
-      }
+        setInterval: 'readonly',
+      },
     },
     rules: {
       'no-unused-vars': 'warn',
-      'no-undef': 'off',  // Disabled because code uses global scope for cross-file communication
+      'no-undef': 'off', // Disabled because code uses global scope for cross-file communication
       'prefer-const': 'warn',
       'no-var': 'warn',
-      'no-console': 'off'
-    }
+      'no-console': 'off',
+    },
   },
   {
     ignores: [
@@ -33,7 +41,7 @@ export default [
       'js/sketches/**',
       'dependencies/**',
       'js/legacy.js',
-      'js/test/**'
-    ]
-  }
+      'js/test/**',
+    ],
+  },
 ];

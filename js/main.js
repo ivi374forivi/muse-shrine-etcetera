@@ -1,9 +1,9 @@
 /*
- * 
+ *
  * Considering following the idiomatic style guide
  * https://www.npmjs.com/package/eslint-config-idiomatic
  * https://github.com/rwaldron/idiomatic.js
- * 
+ *
  */
 
 /**
@@ -11,24 +11,22 @@
  */
 
 $(document).ready(function () {
-    const hash = window.location.hash;
-    // Goes to the section in the URL
-    if (hash) {
-        const _hash = $(hash);
+  const hash = window.location.hash;
+  // Goes to the section in the URL
+  if (hash) {
+    const _hash = $(hash);
 
-        _hash.removeClass("dn");
-        if (hash === "#stills" || hash === "#diary" ) { 
-            _hash.addClass("dt");
-        }
-        currentPage = Page.findPage(hash);
-        currentPage.initPage();
-    } else {
-        $("#landing").removeClass("dn");
-        currentPage = Page.findPage("#landing");
+    _hash.removeClass('dn');
+    if (hash === '#stills' || hash === '#diary') {
+      _hash.addClass('dt');
     }
-    
+    currentPage = Page.findPage(hash);
+    currentPage.initPage();
+  } else {
+    $('#landing').removeClass('dn');
+    currentPage = Page.findPage('#landing');
+  }
 });
-
 
 /**
  * Array.some() polyfill
@@ -37,27 +35,27 @@ $(document).ready(function () {
  */
 
 if (!Array.prototype.some) {
-    Array.prototype.some = function(fun/*, thisArg*/) {
-        'use strict';
+  Array.prototype.some = function (fun /*, thisArg*/) {
+    'use strict';
 
-        if (this == null) {
-            throw new TypeError('Array.prototype.some called on null or undefined');
-        }
+    if (this == null) {
+      throw new TypeError('Array.prototype.some called on null or undefined');
+    }
 
-        if (typeof fun !== 'function') {
-            throw new TypeError();
-        }
+    if (typeof fun !== 'function') {
+      throw new TypeError();
+    }
 
-        const t = Object(this);
-        const len = t.length >>> 0;
+    const t = Object(this);
+    const len = t.length >>> 0;
 
-        const thisArg = arguments.length >= 2 ? arguments[1] : void 0;
-        for (let i = 0; i < len; i++) {
-            if (i in t && fun.call(thisArg, t[i], i, t)) {
-                return true;
-            }
-        }
+    const thisArg = arguments.length >= 2 ? arguments[1] : void 0;
+    for (let i = 0; i < len; i++) {
+      if (i in t && fun.call(thisArg, t[i], i, t)) {
+        return true;
+      }
+    }
 
-        return false;
-    };
+    return false;
+  };
 }
